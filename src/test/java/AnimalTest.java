@@ -1,7 +1,7 @@
 import com.example.Animal;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
@@ -16,8 +16,12 @@ public class AnimalTest {
     private static final String PREDATOR = "Хищник";
     private static final String EXPECTED_FAMILIES = "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
 
-    @InjectMocks
     private Animal animal;
+
+    @BeforeEach
+    public void setUp() {
+        animal = new Animal();
+    }
 
     @Test
     public void testGetFoodForHerbivore() throws Exception {
